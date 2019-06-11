@@ -12,7 +12,7 @@ func TestFindGoFiles(t *testing.T) {
 	// Map of expected file names and the count of
 	// how many times they are found in the list.
 	// Expect each key in the map to have a count of one.
-	fileListExp := map[string]int{"a.go": 0, "b.go": 0}
+	fileListExp := map[string]int{"a.go": 0, "b.go": 0, "read_test.go": 0}
 
 	// Check that each file found was expected and count it.
 	for _, filename := range fileList {

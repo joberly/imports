@@ -1,6 +1,6 @@
-// This is a Golang source file used only for testing readImports().
+// This is a Golang source file used only for testing the imports package.
 
-package somepackage
+package testdata
 
 import "github.com/user/pkg"
 import p "github.com/user2/pkg2"
@@ -34,3 +34,4 @@ func aFunction() bool {
 
     return false
 }
+

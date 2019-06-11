@@ -7,7 +7,7 @@ import (
 
 // TestReadImports tests good path read of imports from a test Go source file.
 func TestReadImports(t *testing.T) {
-	r, err := os.Open("read_test_file.txt")
+	r, err := os.Open("testdata/read_test.go")
 	if err != nil {
 		t.Fatal(err)
 	}
