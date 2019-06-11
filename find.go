@@ -5,6 +5,8 @@ import (
 	"path/filepath"
 )
 
+// findGoFiles finds all files with extension ".go" in the given directory
+// and returns the base names of those files in the returned string slice.
 func findGoFiles(dirname string) ([]string, error) {
 	dir, err := os.Open(dirname)
 	if err != nil {

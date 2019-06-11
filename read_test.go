@@ -5,8 +5,9 @@ import (
 	"testing"
 )
 
+// TestReadImports tests good path read of imports from a test Go source file.
 func TestReadImports(t *testing.T) {
-	r, err := os.Open("imports_test_file.txt")
+	r, err := os.Open("read_test_file.txt")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -16,6 +17,7 @@ func TestReadImports(t *testing.T) {
 		t.Error(err)
 	}
 
+	// Expected list of imports in correct order.
 	listExpected := []string{
 		"github.com/user/pkg",
 		"github.com/user2/pkg2",
@@ -27,6 +29,9 @@ func TestReadImports(t *testing.T) {
 		"os",
 	}
 
+	// Check iist against expected list.
+	// Report error for extra imports and any import in the list
+	// that doesn't match the expected list.
 	for i := range list {
 		if i >= len(listExpected) {
 			t.Errorf("extra import found: %s", list[i])
@@ -36,6 +41,7 @@ func TestReadImports(t *testing.T) {
 	}
 }
 
+// TestReadImportsNil tests for graceful error when specifying a nil Reader.
 func TestReadImportsNil(t *testing.T) {
 	_, err := readImports(nil)
 	if err == nil {
